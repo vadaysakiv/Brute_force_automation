@@ -10,7 +10,7 @@ username_file= sys.argv[2] # usernamefile
 print("USage: python python_file.py <URL>")
 
 
-password="Academy_student!"
+password="known_password"
 
 try:
     with open(username_file, "r") as file:
