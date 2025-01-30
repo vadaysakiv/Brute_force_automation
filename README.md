@@ -1,1 +1,1 @@
-tested on LDAP - Data Exfiltration & Blind Exploitation
+tested for LDAP - Data Exfiltration & Blind Exploitation
