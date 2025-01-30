@@ -1,4 +1,4 @@
-# first trying brute_all_charcters.property
+# first trying brute_all_charcters.properly
 
 
 import requests
