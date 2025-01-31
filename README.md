@@ -1,4 +1,4 @@
-**tested for LDAP - Data Exfiltration & Blind Exploitation**
+
 
 LDAP - Authentication Bypass
 ![image](https://github.com/user-attachments/assets/a0fd483a-517c-4619-aa79-7f2efe0ff8cb)
@@ -19,6 +19,12 @@ this is our desired output for it
 even though using * for username and password will login with first valid username , but for this script let find the valid username 
 
 
+
+
+
+
+
+
 **python testing_brute_force_unknown_user_pass.py http://94.237.54.116:52908/**
 ![image](https://github.com/user-attachments/assets/7f7ab654-6ed9-4e3f-9128-bba5df9ccbbf)
 
@@ -27,3 +33,8 @@ even though using * for username and password will login with first valid userna
 
 ![image](https://github.com/user-attachments/assets/949e2cb2-2f11-43c0-a313-c65276d8234e)
 
+**tested for LDAP - Data Exfiltration & Blind Exploitation**
+
+if username is known , using code:ldap (&(uid=admin)(|(description=*)(password=invalid)))
+running brute for description by description_brute.py
+![image](https://github.com/user-attachments/assets/39f26375-9aab-4497-8243-30798218f2c8)
